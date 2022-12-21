@@ -1,0 +1,25 @@
+#include <stdio.h>
+#include <math.h>
+
+struct Box {
+    int a;
+    int b;
+    int c;
+};
+
+int main(void) {
+    struct Box box;
+
+    printf("Unesite duljine stranica kutije (a b c): ");
+    scanf("%d %d %d", &box.a, &box.b, &box.c);
+
+    // Ispis najveće moguće duljine stapa
+    int max_stick_length = sqrt(pow(box.a, 2) + pow(box.b, 2));
+    printf("Najveca moguca duljina stapa je: %d\n", max_stick_length);
+
+    // Ispis kuta pod kojim je stap prislonjen prema najvećoj strani kutije
+    int angle = atan2(box.b, box.a) * 180 / M_PI;
+    printf("Stap je prislonjen pod kutem od %d stupnjeva prema najvecoj strani kutije.\n", angle);
+
+    return 0;
+}
