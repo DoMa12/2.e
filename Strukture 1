@@ -1,0 +1,38 @@
+#include <stdio.h>
+
+struct vrijeme {
+  int sat;
+  int minuta;
+  int sekunda;
+};
+
+int main(void) {
+  struct vrijeme vrijeme1, vrijeme2;
+  int razlika;
+
+  // Učitavanje prvog vremena
+  do {
+    printf("Unesite prvo vrijeme (sat, minuta, sekunda): ");
+    scanf("%d%d%d", &vrijeme1.sat, &vrijeme1.minuta, &vrijeme1.sekunda);
+
+    if (vrijeme1.sat < 0 || vrijeme1.sat > 23 || vrijeme1.minuta < 0 || vrijeme1.minuta > 59 || vrijeme1.sekunda < 0 || vrijeme1.sekunda > 59) {
+      printf("Pogrešan unos vremena.\n");
+    }
+  } while (vrijeme1.sat < 0 || vrijeme1.sat > 23 || vrijeme1.minuta < 0 || vrijeme1.minuta > 59 || vrijeme1.sekunda < 0 || vrijeme1.sekunda > 59);
+
+  // Učitavanje drugog vremena
+  do {
+    printf("Unesite drugo vrijeme (sat, minuta, sekunda): ");
+    scanf("%d%d%d", &vrijeme2.sat, &vrijeme2.minuta, &vrijeme2.sekunda);
+
+    if (vrijeme2.sat < 0 || vrijeme2.sat > 23 || vrijeme2.minuta < 0 || vrijeme2.minuta > 59 || vrijeme2.sekunda < 0 || vrijeme2.sekunda > 59) {
+      printf("Pogrešan unos vremena.\n");
+    }
+  } while (vrijeme2.sat < 0 || vrijeme2.sat > 23 || vrijeme2.minuta < 0 || vrijeme2.minuta > 59 || vrijeme2.sekunda < 0 || vrijeme2.sekunda > 59);
+
+  // Izračunavanje razlike u sekundama
+  razlika = (vrijeme2.sat * 3600 + vrijeme2.minuta * 60 + vrijeme2.sekunda) - (vrijeme1.sat * 3600 + vrijeme1.minuta * 60 + vrijeme1.sekunda);
+  printf("Razlika u sekundama: %d\n", razlika);
+
+  return 0;
+}
